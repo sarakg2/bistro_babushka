@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <article class="menu">
+        <h2 class="navn"></h2>
+        <img src="" alt="" />
+        <p class="titel"></p>
+        <p class="beskrivelser"></p>
+      </article>
+    </main>
+    <script>
+      const url = (Params = new URLSearchParams(window.loaction.search));
+      const id = urlParams.get("id");
+      console.log({ id });
+      let menu;
+
+      const url = 'https://babushka-dd8a.restdb.io/rest/menu/${id}';
+      const key = "600ec2fb1346a1524ff12de4";
+
+      async function hentdata() {
+        const resultat = await fetch(url, options);
+        menu = await resultat.json();
+        vis();
+      }
+      menu = await resspons.json();
+      console.log({menu});
+
+      function vis(){
+        document.querySelector(".navn").textContent = retter.navn;
+        document.querySelector(".titel").textContent = retter.kortbeskrivelse;
+        document.querySelector(".beskrivelser").textContent = retter.langbeskrivelse;
+        document.querySelector("img").src = "medium/"+person.billede;
+      }
+      hentData();
+
+      docuemtn.querySelector("button").addEventlistener("click", ()=>{history.back()});
+
+
+      //vis();
+    </script>
+  </body>
+</html>
