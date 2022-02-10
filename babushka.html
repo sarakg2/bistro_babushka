@@ -15,16 +15,25 @@
       }
 
       header {
-        background-color: #351c18;
-        padding: 7%;
+        padding: 6%;
       }
 
       header h1 {
-        color: white;
+        color: #351c18;
         font-size: 3rem;
       }
 
       nav {
+        text-align: center;
+      }
+
+      button {
+        border: none;
+      }
+
+      h2 {
+        margin-top: 30px;
+        text-align: center;
       }
 
       img {
@@ -47,7 +56,7 @@
       <button data-kategori="desserter">Dessert</button>
       <button data-kategori="drikkevarer">Drikkevarer</button>
     </nav>
-    <h2>Alle</h2>
+    <h2>Alle retter</h2>
     <section class="oversigt"></section>
     <template>
       <article class="menu">
@@ -110,7 +119,7 @@
 
             klon
               .querySelector("article")
-              .addEventListener("click", () => visDetaljer(hvad));
+              .addEventListener("click", () => visDetaljer(ret));
             oversigt.appendChild(klon);
           }
         });
@@ -122,5 +131,4 @@
       }
     </script>
   </body>
-  <footer>From Russia with love <3</footer>
 </html>
