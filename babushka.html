@@ -15,7 +15,7 @@
       }
 
       header {
-        padding: 5%;
+        padding: 2.5%;
       }
 
       header h1 {
@@ -41,14 +41,27 @@
       }
 
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         text-align: center;
         color: #351c18;
+      }
+
+      .titel {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 1rem;
       }
 
       img {
         max-width: 100%;
       }
+
+      .logo img {
+        width: 45%;
+      }
+
       .oversigt {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -56,14 +69,27 @@
         margin-right: 30px;
         gap: 10px;
       }
+
+      @media (max-width: 700px) {
+        header h1 {
+          color: #351c18;
+          font-size: 2.5rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        .logo img {
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
     <header>
-      <div>
-        <a href="http://babuska.html"
-          ><img src="billede.jpg" alt="" width="48%"
-        /></a>
+      <div class="logo">
+        <a href="http://babuska.html"><img src="billede.jpg" alt="" /></a>
       </div>
       <h1>
         B I S T R O <br />
