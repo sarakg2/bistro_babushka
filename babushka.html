@@ -24,6 +24,9 @@
         font-size: 3rem;
       }
 
+      nav {
+      }
+
       img {
         max-width: 100%;
       }
@@ -104,21 +107,20 @@
             klon.querySelector(".pris").textContent = ret.pris + ",-";
             klon.querySelector(".beskrivelser").textContent =
               ret.langbeskrivelse;
+
+            klon
+              .querySelector("article")
+              .addEventListener("click", () => visDetaljer(hvad));
             oversigt.appendChild(klon);
           }
         });
-      }
 
-      function visDetaljer(ret) {
-        console.log(ret);
-        modal.querySelector("h2").textContent = ret.navn;
-        modal.querySelector(".profil-billede").src =
-          "medium/" + ret.billednavn + "-md.jpg";
-        modal.querSelector("p").textContent = ret.langbeskrivelse;
-        modal.style.display = "block";
-        modal.addEventListener("click", () => (modal.style.display = "none"));
+        function visDetaljer(hvad) {
+          console.log("ret");
+          location.href = `babushka-singleview.html?=${hvad._id}`;
+        }
       }
     </script>
   </body>
-  <footer>From Rusia with love <3</footer>
+  <footer>From Russia with love <3</footer>
 </html>
