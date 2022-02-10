@@ -7,6 +7,9 @@
     <title>Document</title>
   </head>
   <body>
+    <nav>
+      <button id="back">TILBAGE</button>
+    </nav>
     <main>
       <article class="menu">
         <h2 class="navn"></h2>
@@ -16,32 +19,46 @@
       </article>
     </main>
     <script>
-      const url = (Params = new URLSearchParams(window.loaction.search));
+      const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get("id");
-      console.log({ id });
-      let menu;
 
       const url = `https://babushka-dd8a.restdb.io/rest/menu/${id}`;
-      const key = "600ec2fb1346a1524ff12de4";
+      let menu;
 
-      async function hentdata() {
-        const resultat = await fetch(url, options);
-        menu = await resultat.json();
-        vis();
+      const options = {
+        headers: {
+          "x-apikey": "600ec2fb1346a1524ff12de4",
+        },
+      };
+
+      console.log("ID", id);
+      document.addEventListener("DOMContentLoaded", hentData);
+
+      async function hentData() {
+        console.log("henter data");
+        const response = await fetch(url, options);
+
+        menu = await response.json();
+        vis(menu);
       }
-      menu = await resspons.json();
-      console.log({menu});
 
-      function vis(){
+      function vis(retter) {
         document.querySelector(".navn").textContent = retter.navn;
         document.querySelector(".titel").textContent = retter.kortbeskrivelse;
-        document.querySelector(".beskrivelser").textContent = retter.langbeskrivelse;
-        document.querySelector("img").src = "medium/"+person.billede;
+        document.querySelector(".beskrivelser").textContent =
+          retter.langbeskrivelse;
+        document.querySelector("img").src =
+          "medium/" + retter.billednavn + "-md.jpg";
+
+        document
+          .querySelector("#back")
+          .addEventListener("click", tilbageTilGalleri);
       }
-      hentData();
 
-      document.querySelector("button").addEventlistener("click", ()=>{history.back()});
-
+      function tilbageTilGalleri() {
+        console.log("tilbage til forsiden");
+        history.back();
+      }
 
       //vis();
     </script>
